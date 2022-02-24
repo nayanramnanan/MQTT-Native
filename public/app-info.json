@@ -1,0 +1,14 @@
+{
+    "displayName": "MQTT Native",
+    "appVersion": "0.0.1",
+    "appCopyright": "© Siemens 2022",
+    "links": {
+        "default": [
+            {
+                "type": "WWW",
+                "name": "MindSphere",
+                "value": "https://siemens.mindsphere.io/"
+            }
+        ]
+    }
+}

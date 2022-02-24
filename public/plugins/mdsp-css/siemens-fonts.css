@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'Siemens Sans';
+    font-display: auto;
+    src: url('assets/fonts/sisan08.eot');
+    src: url('assets/fonts/sisan08.eot#iefix') format('embedded-opentype'),
+        url('assets/fonts/sisan08.woff2') format('woff2'), url('assets/fonts/sisan08.woff') format('woff'),
+        url('assets/fonts/sisan08.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Siemens Sans';
+    font-display: auto;
+    src: url('assets/fonts/sisan38.eot');
+    src: url('assets/fonts/sisan38.eot#iefix') format('embedded-opentype'),
+        url('assets/fonts/sisan38.woff2') format('woff2'), url('assets/fonts/sisan38.woff') format('woff'),
+        url('assets/fonts/sisan38.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Siemens Sans';
+    font-display: auto;
+    src: url('assets/fonts/sisan06.eot');
+    src: url('assets/fonts/sisan06.eot#iefix') format('embedded-opentype'),
+        url('assets/fonts/sisan06.woff2') format('woff2'), url('assets/fonts/sisan06.woff') format('woff'),
+        url('assets/fonts/sisan06.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Siemens Sans';
+    font-display: auto;
+    src: url('assets/fonts/sisan36.eot');
+    src: url('assets/fonts/sisan36.eot#iefix') format('embedded-opentype'),
+        url('assets/fonts/sisan36.woff2') format('woff2'), url('assets/fonts/sisan36.woff') format('woff'),
+        url('assets/fonts/sisan36.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Siemens Sans';
+    font-display: auto;
+    src: url('assets/fonts/sisan33.eot');
+    src: url('assets/fonts/sisan33.eot#iefix') format('embedded-opentype'),
+        url('assets/fonts/sisan33.woff2') format('woff2'), url('assets/fonts/sisan33.woff') format('woff'),
+        url('assets/fonts/sisan33.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Siemens Sans';
+    font-display: auto;
+    src: url('assets/fonts/sisan03.eot');
+    src: url('assets/fonts/sisan03.eot#iefix') format('embedded-opentype'),
+        url('assets/fonts/sisan03.woff2') format('woff2'), url('assets/fonts/sisan03.woff') format('woff'),
+        url('assets/fonts/sisan03.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'mdspcssregular';
+    font-display: block;
+    src: url('assets/fonts/mdspcssregular.eot');
+    src: url('assets/fonts/mdspcssregular.eot?#iefix') format('eot'),
+        url('assets/fonts/mdspcssregular.woff2') format('woff2'), url('assets/fonts/mdspcssregular.woff') format('woff'),
+        url('assets/fonts/mdspcssregular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'mdspcssbold';
+    font-display: block;
+    src: url('assets/fonts/mdspcssbold.eot');
+    src: url('assets/fonts/mdspcssbold.eot?#iefix') format('eot'), url('assets/fonts/mdspcssbold.woff2') format('woff2'),
+        url('assets/fonts/mdspcssbold.woff') format('woff'), url('assets/fonts/mdspcssbold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'mdspcssblack';
+    font-display: block;
+    src: url('assets/fonts/mdspcssblack.eot');
+    src: url('assets/fonts/mdspcssblack.eot?#iefix') format('eot'),
+        url('assets/fonts/mdspcssblack.woff2') format('woff2'), url('assets/fonts/mdspcssblack.woff') format('woff'),
+        url('assets/fonts/mdspcssblack.ttf') format('truetype');
+}

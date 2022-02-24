@@ -1,0 +1,94 @@
+.mdsp.mdsp-defaults .tabs--vertical .tab__item a:focus {
+    box-shadow: none;
+}
+
+.mdsp.mdsp-defaults.forceDefaultElements button:focus {
+    outline: none;
+}
+
+.mdsp.mdsp-defaults .inputGroup__textInput:focus {
+    box-shadow: none;
+}
+
+.mdsp.mdsp-defaults .inputGroup__textInput {
+    min-width: 400px;
+}
+
+.mdsp.mdsp-defaults .inputGroup {
+    margin-bottom: 3px;
+}
+
+.mdsp.mdsp-defaults .tabs--vertical .tab__content {
+    padding: 1rem;
+}
+
+.mdsp.mdsp-defaults.forceDefaultElements ul li,
+.mdsp.mdsp-defaults.forceDefaultElements ol li {
+    margin: 0 0 2px;
+}
+
+.is-hidden {
+    display: none;
+}
+
+.is-disabled {
+    pointer-events: none;
+}
+
+.mdsp.mdsp-defaults .contentHeader {
+    margin-bottom: 25px;
+}
+
+.tab__content {
+    width: 100%;
+}
+
+.tc-actions {
+    margin-bottom: 20px;
+}
+
+.cert-textarea {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.cert-textarea .inputGroup {
+    width: 45%;
+    min-width: 400px;
+}
+
+.cert-textarea .inputGroup__textarea {
+    min-height: 400px;
+}
+
+.cert-inputarea {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cert-inputarea button {
+    height: 32px;
+    margin: 0px;
+}
+
+.cert-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.instr {
+    color: #969696;
+    color: rgba(var(--color-font-secondary), 1);
+    font-family: Siemens Sans, Arial, sans-serif;
+    font-size: 14px;
+    font-size: 0.875rem;
+    line-height: 20px;
+    line-height: 1.25rem;
+    list-style: decimal;
+}

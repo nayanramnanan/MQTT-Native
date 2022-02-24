@@ -1,0 +1,24 @@
+{
+    "name": "mqttnative",
+    "version": "0.0.1",
+    "description": "MQTT Native",
+    "type": "module",
+    "scripts": {
+        "start": "node server/index.js",
+        "test": "nodemon server/index.js"
+    },
+    "nodemonConfig": {
+        "ext": "js,ejs,json",
+        "ignore": [
+            "public/"
+        ]
+    },
+    "devDependencies": {
+        "nodemon": "*"
+    },
+    "dependencies": {
+        "ejs": "*",
+        "express": "*",
+        "node-forge": "*"
+    }
+}

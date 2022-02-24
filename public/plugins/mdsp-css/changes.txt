@@ -1,0 +1,2 @@
+- added Siemens font in css file
+- replaced "../assets" to "assets"

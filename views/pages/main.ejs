@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include("../partials/head"); %>
+    </head>
+    <body>
+        <div id="_mdspcontent" class="mdsp mdsp-defaults forceDefaultElements">
+            <div class="appWrapper">
+                <div
+                    class="appWrapper__regions has-contextRegion contextRegion-is-expanded appWrapper__regions--pushLayout"
+                >
+                    <section class="mainRegion">
+                        <div class="contentHeader">
+                            <div class="contentHeader__header">
+                                <div class="header__headline">
+                                    <h1 class="header__title">
+                                        <span class="header__icon iconMdsp black certificate" aria-hidden="true"></span>
+                                        MQTT Native Certificates
+                                    </h1>
+                                    <span class="header__count hidden"></span>
+                                </div>
+                                <div class="header__subline hidden">
+                                    Utility for creating self-signed certificates for MindSphere's MQTT Native
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contentBody">
+                            <!--- TABS --->
+                            <div class="tabs--vertical">
+                                <!--- Tab Navigation --->
+                                <nav class="tab__nav">
+                                    <ul>
+                                        <li class="tab__item">
+                                            <a href="#" id="a-tab-ca" class="is-activated">
+                                                <div class="tab__headline">
+                                                    <span class="iconMdsp speedometer" aria-hidden="true"></span>
+                                                    CA Certifcate
+                                                </div>
+                                                <div class="tab__description">Generate CA certificate</div>
+                                            </a>
+                                        </li>
+                                        <li class="tab__item">
+                                            <a href="#" id="a-tab-ver" class="is-disabled">
+                                                <div class="tab__headline">
+                                                    <span class="iconMdsp announcement" aria-hidden="true"></span>
+                                                    Verification Certificate
+                                                </div>
+                                                <div class="tab__description">
+                                                    Create verification certificate using the CA key, CA certificate and
+                                                    registration code
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="tab__item">
+                                            <a href="#" id="a-tab-dev" class="is-disabled">
+                                                <div class="tab__headline">
+                                                    <span class="iconMdsp announcement" aria-hidden="true"></span>
+                                                    Device Certificate
+                                                </div>
+                                                <div class="tab__description">
+                                                    Create device certificates using the CA key and CA certificate
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+
+                                <!--- Tab Content - CA --->
+                                <div id="tc-ca" class="tab__content">
+                                    <div class="cert-actions">
+                                        <button class="btn-settings button--ghost" title="Settings for certificate">
+                                            <span class="iconMdsp settings" aria-hidden="true"></span>
+                                            Settings
+                                        </button>
+                                        <button
+                                            id="btn-ca-clear"
+                                            class="button--ghost is-disabled"
+                                            title="Clear the form"
+                                        >
+                                            <span class="iconMdsp removeCircle" aria-hidden="true"></span>
+                                            Clear
+                                        </button>
+                                    </div>
+
+                                    <div class="cert-inputarea">
+                                        <div class="inputGroup">
+                                            <label class="inputGroup__label" for="ti-ca-tenant"> Tenant Name </label>
+                                            <input
+                                                class="inputGroup__textInput"
+                                                type="text"
+                                                value=""
+                                                id="ti-ca-tenant"
+                                            />
+                                            <div class="inputGroup__description">Common Name(CN) for certificate</div>
+                                        </div>
+                                        <button
+                                            id="btn-ca-new"
+                                            class="button--primary is-disabled"
+                                            title="Create new certificate"
+                                        >
+                                            <span class="iconMdsp certificate" aria-hidden="true"></span>New
+                                        </button>
+                                        <div id="bi-ca-new" class="busyIndicator">
+                                            <div class="busyIndicator__ring busyIndicator__ring--small"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="cert-textarea">
+                                        <div class="inputGroup">
+                                            <label class="inputGroup__label" for="ta-ca-key">CA Private Key</label>
+                                            <button
+                                                id="btn-ca-dl-key"
+                                                class="button--ghost has-icon-only is-disabled"
+                                                title="Download private key"
+                                            >
+                                                <span class="iconMdsp download" aria-hidden="true"></span>
+                                            </button>
+                                            <button id="btn-ca-im-key" class="button--ghost" title="Import private key">
+                                                <span class="iconMdsp import" aria-hidden="true"></span>Import
+                                            </button>
+                                            <input id="file-ca-key-import" type="file" accept=".key" hidden />
+                                            <textarea
+                                                id="ta-ca-key"
+                                                class="inputGroup__textarea is-readonly"
+                                                readonly="readonly"
+                                                spellcheck="false"
+                                            >
+                                            </textarea>
+                                            <div class="inputGroup__description"></div>
+                                        </div>
+
+                                        <div class="inputGroup">
+                                            <label class="inputGroup__label" for="ta-ca-cert">CA Certificate</label>
+                                            <button
+                                                id="btn-ca-dl-cert"
+                                                class="button--ghost has-icon-only is-disabled"
+                                                title="Download certificate"
+                                            >
+                                                <span class="iconMdsp download" aria-hidden="true"></span>
+                                            </button>
+                                            <button
+                                                id="btn-ca-im-cert"
+                                                class="button--ghost"
+                                                title="Import certificate"
+                                            >
+                                                <span class="iconMdsp import" aria-hidden="true"></span>Import
+                                            </button>
+                                            <input
+                                                id="file-ca-cert-import"
+                                                type="file"
+                                                accept=".pem, .crt, .cer"
+                                                hidden
+                                            />
+                                            <textarea
+                                                id="ta-ca-cert"
+                                                class="inputGroup__textarea is-readonly"
+                                                readonly="readonly"
+                                                spellcheck="false"
+                                            >
+                                            </textarea>
+                                            <div class="inputGroup__description"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--- Tab Content - Verification --->
+                                <div id="tc-ver" class="tab__content is-hidden">
+                                    <div class="cert-actions">
+                                        <button class="btn-settings button--ghost" title="Settings for certificate">
+                                            <span class="iconMdsp settings" aria-hidden="true"></span>
+                                            Settings
+                                        </button>
+                                        <button
+                                            id="btn-ver-clear"
+                                            class="button--ghost is-disabled"
+                                            title="Clear the form"
+                                        >
+                                            <span class="iconMdsp removeCircle" aria-hidden="true"></span>
+                                            Clear
+                                        </button>
+                                    </div>
+
+                                    <div class="cert-inputarea">
+                                        <div class="inputGroup">
+                                            <label class="inputGroup__label" for="ti-ver-regcode">
+                                                Registration Code
+                                            </label>
+                                            <input
+                                                class="inputGroup__textInput"
+                                                type="text"
+                                                value=""
+                                                id="ti-ver-regcode"
+                                            />
+                                            <div class="inputGroup__description">Common Name(CN) for certificate</div>
+                                        </div>
+                                        <button
+                                            id="btn-ver-new"
+                                            class="button--primary is-disabled"
+                                            title="Create new certificate"
+                                        >
+                                            <span class="iconMdsp certificate" aria-hidden="true"></span>New
+                                        </button>
+                                        <div id="bi-ver-new" class="busyIndicator">
+                                            <div class="busyIndicator__ring busyIndicator__ring--small"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="cert-textarea">
+                                        <div class="inputGroup">
+                                            <label class="inputGroup__label" for="ta-ver-cert"
+                                                >Verification Certificate</label
+                                            >
+                                            <button
+                                                id="btn-ver-dl-cert"
+                                                class="button--ghost has-icon-only is-disabled"
+                                                title="Download certificate"
+                                            >
+                                                <span class="iconMdsp download" aria-hidden="true"></span>
+                                            </button>
+                                            <textarea
+                                                id="ta-ver-cert"
+                                                class="inputGroup__textarea is-readonly"
+                                                readonly="readonly"
+                                                spellcheck="false"
+                                            >
+                                            </textarea>
+                                            <div class="inputGroup__description"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--- Tab Content - Device --->
+                                <div id="tc-dev" class="tab__content is-hidden">
+                                    <div class="cert-actions">
+                                        <button class="btn-settings button--ghost" title="Settings for certificate">
+                                            <span class="iconMdsp settings" aria-hidden="true"></span>
+                                            Settings
+                                        </button>
+                                        <button
+                                            id="btn-dev-clear"
+                                            class="button--ghost is-disabled"
+                                            title="Clear the form"
+                                        >
+                                            <span class="iconMdsp removeCircle" aria-hidden="true"></span>
+                                            Clear
+                                        </button>
+                                    </div>
+
+                                    <div class="cert-inputarea">
+                                        <div class="inputGroup">
+                                            <label class="inputGroup__label" for="ti-dev-name"> Device Name </label>
+                                            <input
+                                                class="inputGroup__textInput"
+                                                type="text"
+                                                value=""
+                                                id="ti-dev-name"
+                                            />
+                                            <div class="inputGroup__description">Common Name(CN) for certificate</div>
+                                        </div>
+                                        <button
+                                            id="btn-dev-new"
+                                            class="button--primary is-disabled"
+                                            title="Create new certificate"
+                                        >
+                                            <span class="iconMdsp certificate" aria-hidden="true"></span>New
+                                        </button>
+                                        <div id="bi-dev-new" class="busyIndicator">
+                                            <div class="busyIndicator__ring busyIndicator__ring--small"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="cert-textarea">
+                                        <div class="inputGroup">
+                                            <label class="inputGroup__label" for="ta-dev-key">Device Private Key</label>
+                                            <button
+                                                id="btn-dev-dl-key"
+                                                class="button--ghost has-icon-only is-disabled"
+                                                title="Download device key"
+                                            >
+                                                <span class="iconMdsp download" aria-hidden="true"></span>
+                                            </button>
+                                            <textarea
+                                                id="ta-dev-key"
+                                                class="inputGroup__textarea is-readonly"
+                                                readonly="readonly"
+                                                spellcheck="false"
+                                            >
+                                            </textarea>
+                                            <div class="inputGroup__description"></div>
+                                        </div>
+
+                                        <div class="inputGroup">
+                                            <label class="inputGroup__label" for="ta-dev-cert"
+                                                >Device Certificate</label
+                                            >
+                                            <button
+                                                id="btn-dev-dl-cert"
+                                                class="button--ghost has-icon-only is-disabled"
+                                                title="Download device certificate"
+                                            >
+                                                <span class="iconMdsp download" aria-hidden="true"></span>
+                                            </button>
+                                            <textarea
+                                                id="ta-dev-cert"
+                                                class="inputGroup__textarea is-readonly"
+                                                readonly="readonly"
+                                                spellcheck="false"
+                                            >
+                                            </textarea>
+                                            <div class="inputGroup__description"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="contextRegion">
+                        <span class="h4">Instructions</span>
+                        <br /><br />
+                        <b>CA Certificate</b>
+                        <ul class="instr">
+                            <li>Enter Tenant Name</li>
+                            <li>Click the <i>New</i> button to generate a private key and certificate</li>
+                            <li>Click the <i>Download</i> icons to save these</li>
+                            <li>Navigate to MindSphere's Asset Manager -> Connectivity -> MQTT Certificates</li>
+                            <li>Click the <i>Upload Certificate</i> button and enter a certificate Name</li>
+                            <li>Upload your CA Certificate here</li>
+                        </ul>
+
+                        <br /><b>Verification Certificate</b>
+                        <ul class="instr">
+                            <li>
+                                Copy the Registration Code from MindSphere's Asset Manager and paste in the
+                                <i>Registration Code</i> text box
+                            </li>
+                            <li>Click the <i>New</i> button to generate a certificate</li>
+                            <li>Click the <i>Download</i> icon to save it</li>
+                            <li>Upload your Verification Certificate back in MindSphere's Asset Manager</li>
+                        </ul>
+
+                        <br /><b>Device Certificate</b>
+                        <ul class="instr">
+                            <li>
+                                In the CA Certifcate tab, either create a new CA private key and certificate or import
+                                already saved ones
+                            </li>
+                            <li>Enter Device Name in the Device Certificate tab</li>
+                            <li>Click the <i>New</i> button to generate a private key and certificate</li>
+                            <li>Click the <i>Download</i> icons to save these</li>
+                            <li>Click the <i>Clear</i> button and repeat for mulitple devices</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+            <%- include("../partials/notifications"); %> <%- include("../partials/dialogSettings"); %>
+        </div>
+    </body>
+</html>
