@@ -274,11 +274,11 @@
                                         <div class="inputGroup">
                                             <label class="inputGroup__label" for="ta-dev-key">Device Private Key</label>
                                             <button
-                                                id="btn-dev-dl-key"
+                                                id="btn-dev-dl-key-pem"
                                                 class="button--ghost has-icon-only is-disabled"
                                                 title="Download device key"
                                             >
-                                                <span class="iconMdsp download" aria-hidden="true"></span>
+                                                <span class="iconMdsp download" aria-hidden="true"></span>PEM
                                             </button>
                                             <textarea
                                                 id="ta-dev-key"
@@ -295,11 +295,18 @@
                                                 >Device Certificate</label
                                             >
                                             <button
-                                                id="btn-dev-dl-cert"
-                                                class="button--ghost has-icon-only is-disabled"
+                                                id="btn-dev-dl-cert-pem"
+                                                class="button--ghost is-disabled"
                                                 title="Download device certificate"
                                             >
-                                                <span class="iconMdsp download" aria-hidden="true"></span>
+                                                <span class="iconMdsp download" aria-hidden="true"></span>PEM
+                                            </button>
+                                            <button
+                                                id="btn-dev-dl-cert-pkcs12"
+                                                class="button--ghost is-disabled"
+                                                title="Download device certificate"
+                                            >
+                                                <span class="iconMdsp download" aria-hidden="true"></span>PKCS12
                                             </button>
                                             <textarea
                                                 id="ta-dev-cert"

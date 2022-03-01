@@ -240,13 +240,18 @@ $(document).ready(function () {
     })
 
     //Download Buttons
-    $('#btn-dev-dl-key').on('click', function () {
+    $('#btn-dev-dl-key-pem').on('click', function () {
         let device = $('#ti-dev-name').val().trim()
         downloadFile(`${device}.key`, $('#ta-dev-key').val())
     })
-    $('#btn-dev-dl-cert').on('click', function () {
+    $('#btn-dev-dl-cert-pem').on('click', function () {
         let device = $('#ti-dev-name').val().trim()
         downloadFile(`${device}.pem`, $('#ta-dev-cert').val())
+    })
+    $('#btn-dev-dl-cert-pkcs12').on('click', function () {
+        let device = $('#ti-dev-name').val().trim()
+        let data = sessionStorage.getItem('certificatePKCS12') || ''
+        downloadFile(`${device}.p12`, data)
     })
 
     //Device Name

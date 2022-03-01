@@ -99,8 +99,11 @@ const genDeviceCertificate = (deviceName, tenantKeyPem, tenantCertPem, years, C,
         .done((dev) => {
             $('#bi-dev-new').removeClass('is-shown')
             $('#ta-dev-key').val(dev.privateKey)
-            $('#ta-dev-cert').val(dev.certificate)
-            $('#btn-dev-clear, #btn-dev-dl-key, #btn-dev-dl-cert').removeClass('is-disabled')
+            $('#ta-dev-cert').val(dev.certificatePEM)
+            $('#btn-dev-clear, #btn-dev-dl-key-pem, #btn-dev-dl-cert-pem, #btn-dev-dl-cert-pkcs12').removeClass(
+                'is-disabled'
+            )
+            sessionStorage.setItem('certificatePKCS12', dev.certificatePKCS12) //save PKCS12 format for download
         })
         .fail((xhr, textStatus, errorThrown) => {
             console.log(xhr.responseText)

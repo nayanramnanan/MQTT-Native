@@ -94,8 +94,13 @@ export const genDeviceCertificate = (
     // Self-sign certificate
     cert.sign(tenantKey, forge.md.sha256.create())
 
-    // Certificate
-    device.certificate = forge.pki.certificateToPem(cert)
+    // Certificate in PEM
+    device.certificatePEM = forge.pki.certificateToPem(cert)
+
+    // Certificate in PKCS12
+    let pkcsAsn1 = forge.pkcs12.toPkcs12Asn1(keys.privateKey, [device.certificatePEM], '')
+    let pkcsAsn1Bytes = forge.asn1.toDer(pkcsAsn1).getBytes()
+    device.certificatePKCS12 = forge.util.encode64(pkcsAsn1Bytes)
 
     return device
 }
