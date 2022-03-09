@@ -11,6 +11,19 @@ const downloadFile = (filename, text) => {
     document.body.removeChild(el)
 }
 
+// ------------
+// Download P12
+// ------------
+const downloadFileP12 = (filename, content) => {
+    let el = document.createElement('a')
+    el.setAttribute('href', `data:application/x-pkcs12;base64,${content}`)
+    el.setAttribute('download', filename)
+    el.style.display = 'none'
+    document.body.appendChild(el)
+    el.click()
+    document.body.removeChild(el)
+}
+
 // ----------------------
 // Generate Serial Number
 // ----------------------

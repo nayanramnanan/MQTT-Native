@@ -98,9 +98,13 @@ export const genDeviceCertificate = (
     device.certificatePEM = forge.pki.certificateToPem(cert)
 
     // Certificate in PKCS12
-    let pkcsAsn1 = forge.pkcs12.toPkcs12Asn1(keys.privateKey, [device.certificatePEM], '')
-    let pkcsAsn1Bytes = forge.asn1.toDer(pkcsAsn1).getBytes()
-    device.certificatePKCS12 = forge.util.encode64(pkcsAsn1Bytes)
+    let p12Asn1 = forge.pkcs12.toPkcs12Asn1(keys.privateKey, device.certificatePEM, '', {
+        algorithm: '3des', // Triple DES to attain maximum compatibility with PKCS parsers
+        generateLocalKeyId: true // true is the default but it does not hurt to specify it anyway
+    })
+    let p12Der = forge.asn1.toDer(p12Asn1).getBytes()
+    let p12b64 = forge.util.encode64(p12Der)
+    device.certificatePKCS12 = p12b64
 
     return device
 }

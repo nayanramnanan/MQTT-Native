@@ -251,7 +251,7 @@ $(document).ready(function () {
     $('#btn-dev-dl-cert-pkcs12').on('click', function () {
         let device = $('#ti-dev-name').val().trim()
         let data = sessionStorage.getItem('certificatePKCS12') || ''
-        downloadFile(`${device}.p12`, data)
+        downloadFileP12(`${device}.p12`, data)
     })
 
     //Device Name
